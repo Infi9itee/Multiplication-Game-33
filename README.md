@@ -1,11 +1,11 @@
 **Here's the things you need to do in order to compile and run the game:**
 **Things needed before compiling:**
-1. MinGW-w64 compiler.
-2. The game has graphical interface, so in order to run the game you need to install WSL. I installed (Ubuntu).
-3. Im using WSL so need to install ncurses.
-4. Install make via MinGW or MSYS2.
-5. Any code editor.
-6. Windows.
+1. MinGW-w64 compiler installed in the WSL.
+3. The game has graphical interface, so in order to run the game you need to install WSL. I installed (Ubuntu).
+4. Im using WSL so need to install ncurses.
+5. Install make via MinGW or MSYS2.
+6. Any code editor.
+7. Windows.
 
 **Compiling the Game:**
 1. Open WSL terminal.
