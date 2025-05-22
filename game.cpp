@@ -30,14 +30,26 @@ void initializeGameState(GameState &state) {
 }
 
 bool checkLine(int start_r, int start_c, int dr, int dc, int player){
-    for(int k = 1; k < WIN_LENGTH; k++){
+    int count = 0;
+    // Check positive direction
+    for(int k = 0; k < WIN_LENGTH; k++){
         int r = start_r + k * dr;
         int c = start_c + k * dc;
         if(r < 0 || r >= BOARD_SIZE || c < 0 || c >= BOARD_SIZE || moveOwner[r][c] != player){
-            return false;
+            break;
         }
+        count++;
     }
-    return true;
+    // Check negative direction
+    for(int k = 1; k < WIN_LENGTH; k++){
+        int r = start_r - k * dr;
+        int c = start_c - k * dc;
+        if(r < 0 || r >= BOARD_SIZE || c < 0 || c >= BOARD_SIZE || moveOwner[r][c] != player){
+            break;
+        }
+        count++;
+    }
+    return count >= WIN_LENGTH;
 }
 
 // Check if a player has won (4 in a row horizontally, vertically, or diagonally)
@@ -47,12 +59,8 @@ int checkWinCondition(){
             int owner = moveOwner[i][j];
             if(owner == NO_PLAYER) continue;
             for(auto& dir: directions){
-                int end_r = i + (WIN_LENGTH - 1) * dir[0];
-                int end_c = j + (WIN_LENGTH - 1) * dir[1];
-                if(end_r >= 0 && end_r < BOARD_SIZE && end_c >= 0 && end_c < BOARD_SIZE){
-                    if(checkLine(i, j, dir[0], dir[1], owner)){
-                        return owner;
-                    }
+                if(checkLine(i, j, dir[0], dir[1], owner)){
+                    return owner;
                 }
             }
         }
