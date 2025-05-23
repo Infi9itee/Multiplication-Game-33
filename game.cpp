@@ -69,7 +69,7 @@ int checkWinCondition(){
 }
 
 bool humanMove(GameState &state, const BoardDisplayInfo& displayInfo){
-    int input_win_height = 7, input_win_width = 60;
+    int input_win_height = 9, input_win_width = 70;
     int input_win_y = LINES - input_win_height - 1;
     int input_win_x = (COLS - input_win_width) / 2;
     WINDOW *input_win = create_newwin(input_win_height, input_win_width, input_win_y, input_win_x);
