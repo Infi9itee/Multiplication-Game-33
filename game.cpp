@@ -85,7 +85,7 @@ bool humanMove(GameState &state, const BoardDisplayInfo& displayInfo){
         // Display instructions
         wattron(input_win, COLOR_PAIR(3));
         mvwprintw(input_win, 1, 2, "Active Factor: %d", state.activeFactor);
-        mvwprintw(input_win, 2, 2, "Press any number to move, 'q' to exit, or 's' to save.");
+        mvwprintw(input_win, 2, 2, "Press any number [1 - 9] to move, 'q' to exit, or 's' to save.");
         wattroff(input_win, COLOR_PAIR(3));
 
         // Display error message (if any)
