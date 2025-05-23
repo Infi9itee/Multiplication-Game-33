@@ -8,7 +8,7 @@
 #include <chrono>
 const int directions[4][2] = {
     {1, 0}, 
-    {, 1},  
+    {0, 1},  
     {1, 1},  // Left
     {1, -1}    // Right
 };
